@@ -13,9 +13,6 @@
  *
  * If you want a header-only version, just include the .c
  *
- * NOTE: non-priviledged ping is the next feature to come, promise, for now
- *       you will need root/administrator permissions.
- *
  * Author: Sylvain Gadrat
  * License: WTFPL v2
  */
