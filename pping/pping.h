@@ -17,6 +17,10 @@
  * License: WTFPL v2
  */
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** Ping an address, return after receiving the response
  * @return 0: success ; 1 failure ; 2 timeout
  *
@@ -51,5 +55,9 @@ struct pping_s;
 struct pping_s* pping_init(const char* addr);
 int pping_ping(struct pping_s* pping);
 void pping_free(struct pping_s* pping);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

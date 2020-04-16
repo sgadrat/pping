@@ -134,6 +134,10 @@
 //       Not sure if the case of a larger header can happen.
 #define IP_HEADER_LEN 20
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct ping_pkt {
 	char fill[IP_HEADER_LEN]; // Let at least enough space for an IP header (there may be padding after this field, don't use it to parse IP header)
 	struct icmphdr hdr;
@@ -152,7 +156,7 @@ struct pping_s {
 
 // Shamelessly copy-pasted from https://www.geeksforgeeks.org/ping-in-c/
 static unsigned short checksum(void *b, int len) {
-	unsigned short *buf = b;
+	unsigned short *buf = (unsigned short *)b;
 	unsigned int sum = 0;
 	unsigned short result;
 
@@ -229,7 +233,8 @@ static int pping_ping_icmp_send_echo(HANDLE icmp_file, struct sockaddr_in *ping_
 #endif
 
 static int pping_ping_posix(int ping_sockfd, struct sockaddr_in *ping_addr, int sock_is_raw) {
-	int ttl_val=56, i, addr_len;
+	int ttl_val=56, i;
+	unsigned int addr_len;
 
 	struct ping_pkt pckt;
 	struct sockaddr_in r_addr;
@@ -396,3 +401,7 @@ int pping_easy_ping(char const* addr) {
 	pping_free(pping);
 	return r;
 }
+
+#ifdef __cplusplus
+}
+#endif
