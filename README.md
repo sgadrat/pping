@@ -27,4 +27,4 @@ Incredibly interesting facts
 
 Author: Sylvain Gadrat
 
-License: WTFPL v2 (except copy-pasted parts from random locations, they are the property of their authors)
+License: WTFPL v2 (except for parts annotated as copy-pasted from random locations, they are the property of their authors)

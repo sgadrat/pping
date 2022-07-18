@@ -2,8 +2,10 @@
 #include <stdio.h>
 
 // Compilation
-//  Linux: gcc pping_sample.c pping/pping.c -o pping_sample
+//  Linux/macOS: gcc pping_sample.c pping/pping.c -o pping_sample
 //  Windows: cl pping_sample.c pping/pping.c
+//
+// -DPPING_DEBUG <- Better output when things dont go as expected
 
 int main(int argc, char** argv) {
 	int r;
